@@ -1,0 +1,12 @@
+VAD
+
+sed -i -e 's@#include "common_audio/vad/@#include "@g' *.{c,h}
+Remove .cc (tests)
+
+signal_processing
+
+sed -i -e 's@#include "common_audio/signal_processing/@#include "@g' *.{cc,c,h}
+Remove unit tests
+Remove .S
+find -type f -name "*mips*" -delete
+find -type f -name "*neon*" -delete
