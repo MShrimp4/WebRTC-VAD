@@ -35,9 +35,6 @@ int WebRtcSpl_DownsampleFastC(const int16_t* data_in,
     return -1;
   }
 
-  rtc_MsanCheckInitialized(coefficients, sizeof(coefficients[0]),
-                           coefficients_length);
-
   for (i = delay; i < endpos; i += factor) {
     out_s32 = 2048;  // Round value, 0.5 in Q12.
 
@@ -45,8 +42,6 @@ int WebRtcSpl_DownsampleFastC(const int16_t* data_in,
       // Negative overflow is permitted here, because this is
       // auto-regressive filters, and the state for each batch run is
       // stored in the "negative" positions of the output vector.
-      rtc_MsanCheckInitialized(&data_in[(ptrdiff_t) i - (ptrdiff_t) j],
-          sizeof(data_in[0]), 1);
       // out_s32 is in Q12 domain.
       out_s32 += coefficients[j] * data_in[(ptrdiff_t) i - (ptrdiff_t) j];
     }
@@ -56,10 +51,6 @@ int WebRtcSpl_DownsampleFastC(const int16_t* data_in,
     // Saturate and store the output.
     *data_out++ = WebRtcSpl_SatW32ToW16(out_s32);
   }
-
-  RTC_DCHECK_EQ(original_data_out + data_out_length, data_out);
-  rtc_MsanCheckInitialized(original_data_out, sizeof(original_data_out[0]),
-                           data_out_length);
 
   return 0;
 }

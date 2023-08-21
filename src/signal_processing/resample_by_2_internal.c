@@ -29,7 +29,7 @@ static const int16_t kResampleAllpass[2][3] = {
 // output: int16_t (saturated) (of length len/2)
 // state:  filter state array; length = 8
 
-void RTC_NO_SANITIZE("signed-integer-overflow")  // bugs.webrtc.org/5486
+void __attribute__((no_sanitize("signed-integer-overflow")))  // bugs.webrtc.org/5486
 WebRtcSpl_DownBy2IntToShort(int32_t *in, int32_t len, int16_t *out,
                             int32_t *state)
 {
@@ -125,7 +125,7 @@ WebRtcSpl_DownBy2IntToShort(int32_t *in, int32_t len, int16_t *out,
 // output: int32_t (shifted 15 positions to the left, + offset 16384) (of length len/2)
 // state:  filter state array; length = 8
 
-void RTC_NO_SANITIZE("signed-integer-overflow")  // bugs.webrtc.org/5486
+void __attribute__((no_sanitize("signed-integer-overflow")))  // bugs.webrtc.org/5486
 WebRtcSpl_DownBy2ShortToInt(const int16_t *in,
                             int32_t len,
                             int32_t *out,
@@ -556,7 +556,7 @@ void WebRtcSpl_LPBy2ShortToInt(const int16_t* in, int32_t len, int32_t* out,
 // input:  int32_t (shifted 15 positions to the left, + offset 16384)
 // output: int32_t (normalized, not saturated)
 // state:  filter state array; length = 8
-void RTC_NO_SANITIZE("signed-integer-overflow")  // bugs.webrtc.org/5486
+void __attribute__((no_sanitize("signed-integer-overflow")))  // bugs.webrtc.org/5486
 WebRtcSpl_LPBy2IntToInt(const int32_t* in, int32_t len, int32_t* out,
                         int32_t* state)
 {

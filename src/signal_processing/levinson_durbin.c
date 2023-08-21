@@ -20,7 +20,7 @@
 
 #define SPL_LEVINSON_MAXORDER 20
 
-int16_t RTC_NO_SANITIZE("signed-integer-overflow")  // bugs.webrtc.org/5486
+int16_t __attribute__((no_sanitize("signed-integer-overflow")))  // bugs.webrtc.org/5486
 WebRtcSpl_LevinsonDurbin(const int32_t* R, int16_t* A, int16_t* K,
                          size_t order)
 {
