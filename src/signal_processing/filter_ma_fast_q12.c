@@ -17,7 +17,7 @@
 
 #include "include/signal_processing_library.h"
 
-#include "rtc_base/sanitizer.h"
+
 
 void WebRtcSpl_FilterMAFastQ12(const int16_t* in_ptr,
                                int16_t* out_ptr,

@@ -10,8 +10,8 @@
 
 #include "include/signal_processing_library.h"
 
-#include "rtc_base/checks.h"
-#include "rtc_base/sanitizer.h"
+
+
 
 // TODO(Bjornv): Change the function parameter order to WebRTC code style.
 // C version of WebRtcSpl_DownsampleFast() for generic platforms.

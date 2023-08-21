@@ -15,7 +15,7 @@
  */
 
 #include "resample_by_2_internal.h"
-#include "rtc_base/sanitizer.h"
+
 
 // allpass filter coefficients.
 static const int16_t kResampleAllpass[2][3] = {

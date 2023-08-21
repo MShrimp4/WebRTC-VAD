@@ -10,7 +10,7 @@
 
 #include "stddef.h"
 
-#include "rtc_base/checks.h"
+
 #include "include/signal_processing_library.h"
 
 // TODO(bjornv): Change the return type to report errors.

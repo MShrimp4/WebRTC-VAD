@@ -14,3 +14,7 @@ sed -i -e 's@#include "rtc_base/system/arch.h"@@g' *.{cc,c,h}
 rm spl_inl_armv7.h
 add spl_sqrt_floor.{c,h}
 sed -i -e 's@#include "common_audio/third_party/spl_sqrt_floor/@#include "@g' *.{cc,c,h}
+unifdefall.sh -I. complex_fft.c
+sed -i -e 's/RTC_COMPILE_ASSERT/_Static_assert/g' *.{cc,c,h}
+sed -i -e 's@#include "rtc_base/checks.h"@@g' *.{cc,c,h}
+sed -i -e 's@#include "rtc_base/sanitizer.h"@@g' *.{cc,c,h}

@@ -13,7 +13,7 @@
  *
  */
 
-#include "rtc_base/checks.h"
+
 #include "include/signal_processing_library.h"
 
 // Maximum number of samples in a low/high-band frame.

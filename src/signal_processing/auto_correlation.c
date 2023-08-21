@@ -10,7 +10,7 @@
 
 #include "include/signal_processing_library.h"
 
-#include "rtc_base/checks.h"
+
 
 size_t WebRtcSpl_AutoCorrelation(const int16_t* in_vector,
                                  size_t in_vector_length,
