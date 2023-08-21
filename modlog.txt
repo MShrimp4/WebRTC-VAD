@@ -10,3 +10,7 @@ Remove unit tests
 Remove .S
 find -type f -name "*mips*" -delete
 find -type f -name "*neon*" -delete
+sed -i -e 's@#include "rtc_base/system/arch.h"@@g' *.{cc,c,h}
+rm spl_inl_armv7.h
+add spl_sqrt_floor.{c,h}
+sed -i -e 's@#include "common_audio/third_party/spl_sqrt_floor/@#include "@g' *.{cc,c,h}

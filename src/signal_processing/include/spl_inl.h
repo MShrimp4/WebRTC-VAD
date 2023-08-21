@@ -16,8 +16,6 @@
 
 #include <stdint.h>
 
-#include "rtc_base/compile_assert_c.h"
-
 extern const int8_t kWebRtcSpl_CountLeadingZeros32_Table[64];
 
 // Don't call this directly except in tests!
