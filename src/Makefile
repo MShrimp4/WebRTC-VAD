@@ -4,6 +4,7 @@ all: builddir
 	for pr in signal_processing vad;  do \
 		$(MAKE) -C $$pr && cp $$pr/build/*.{h,lib} build; \
 	done
+	cp ../LICENSE build
 
 builddir:
 	mkdir -p build
