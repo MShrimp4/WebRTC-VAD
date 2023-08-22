@@ -13,7 +13,6 @@
 #include <memory>
 
 #include "include/webrtc_vad.h"
-#include "rtc_base/checks.h"
 
 namespace webrtc {
 

@@ -10,7 +10,6 @@
 
 #include "vad_filterbank.h"
 
-#include "rtc_base/checks.h"
 #include "signal_processing_library.h"
 
 // Constants used in LogOfEnergy().

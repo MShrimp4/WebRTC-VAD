@@ -5,7 +5,11 @@ sed -i -e 's@#include "common_audio/vad/@#include "@g' *.{cc,c,h}
 sed -i -e 's@#include "common_audio/signal_processing/include/@#include "@g' *.{cc,c,h}
 sed -i '/RTC_DCHECK/d' *.{cc,c,h}
 sed -i '/RTC_CHECK/d' *.{cc,c,h}
-
+sed -i '\@#include "rtc_base/checks.h"@d' *.{cc,c,h}
+sed -i '\@#include "rtc_base/sanitizer.h"@d' *.{cc,c,h}
+sed -i -r 's/RTC_NO_SANITIZE\(([^)]+)\)/__attribute__((no_sanitize(\1)))/g' *.{c,cc,h}
+rm vad_unittest.h
+rm -rf mock
 
 signal_processing
 

@@ -10,7 +10,6 @@
 
 #include "vad_sp.h"
 
-#include "rtc_base/checks.h"
 #include "signal_processing_library.h"
 #include "vad_core.h"
 

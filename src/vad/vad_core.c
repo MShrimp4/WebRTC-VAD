@@ -10,7 +10,6 @@
 
 #include "vad_core.h"
 
-#include "rtc_base/sanitizer.h"
 #include "signal_processing_library.h"
 #include "vad_filterbank.h"
 #include "vad_gmm.h"
@@ -114,7 +113,7 @@ static int32_t WeightedAverage(int16_t* data, int16_t offset,
 // undefined behavior, so not a good idea; this just makes UBSan ignore the
 // violation, so that our old code can continue to do what it's always been
 // doing.)
-static inline int32_t RTC_NO_SANITIZE("signed-integer-overflow")
+static inline int32_t __attribute__((no_sanitize("signed-integer-overflow")))
     OverflowingMulS16ByS32ToS32(int16_t a, int32_t b) {
   return a * b;
 }
