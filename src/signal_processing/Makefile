@@ -5,6 +5,7 @@ SRC_FILES := $(wildcard $(SRC_DIR)/*.c)
 H_FILES_SRC := $(wildcard $(SRC_DIR)/include/*.h)
 H_FILES := $(patsubst $(SRC_DIR)/include/%.h, $(BUILD_DIR)/%.h, $(H_FILES_SRC))
 H_FILES += $(BUILD_DIR)/dot_product_with_scale.h
+H_FILES += $(BUILD_DIR)/spl_sqrt_floor.h
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC_FILES))
 LIB_FILE := $(BUILD_DIR)/signal_processing_library.lib
 
@@ -23,9 +24,12 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 
 $(BUILD_DIR)/dot_product_with_scale.h: $(SRC_DIR)/dot_product_with_scale.h
 	cp $< $@
+$(BUILD_DIR)/spl_sqrt_floor.h: $(SRC_DIR)/spl_sqrt_floor.h
+	cp $< $@
 
 $(BUILD_DIR)/%.h: $(SRC_DIR)/include/%.h
 	cp $< $@
+	sed -i -e 's@#include "include/@#include "@g' $@
 
 clean:
 	rm -rf $(BUILD_DIR)
