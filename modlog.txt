@@ -1,7 +1,8 @@
 VAD
 
-sed -i -e 's@#include "common_audio/vad/@#include "@g' *.{c,h}
 Remove .cc (tests)
+sed -i -e 's@#include "common_audio/vad/@#include "@g' *.{c,h}
+
 
 signal_processing
 
@@ -21,3 +22,4 @@ sed -i -e 's@#include "rtc_base/sanitizer.h"@@g' *.{cc,c,h}
 sed -i '/RTC_DCHECK_/d' *.{cc,c,h}
 downsample_fast,filter_ma_fast -> hand remove msaninitialized
 sed -i -r 's/RTC_NO_SANITIZE\(([^)]+)\)/__attribute__((no_sanitize(\1)))/g' *.{c,cc,h}
+Modify dot_product_with_scale.cc -> %.c

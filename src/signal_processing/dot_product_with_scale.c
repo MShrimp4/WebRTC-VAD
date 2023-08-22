@@ -8,9 +8,7 @@
  *  be found in the AUTHORS file in the root of the source tree.
  */
 
-#include "signal_processing/dot_product_with_scale.h"
-
-#include "rtc_base/numerics/safe_conversions.h"
+#include "dot_product_with_scale.h"
 
 int32_t WebRtcSpl_DotProductWithScale(const int16_t* vector1,
                                       const int16_t* vector2,
@@ -30,5 +28,11 @@ int32_t WebRtcSpl_DotProductWithScale(const int16_t* vector1,
     sum += (vector1[i] * vector2[i]) >> scaling;
   }
 
-  return rtc::saturated_cast<int32_t>(sum);
+  // mimic saturated_cast
+  if (sum < INT32_MIN)
+    sum = INT32_MIN;
+  else if (sum > INT32_MAX)
+    sum = INT32_MAX;
+
+  return sum;
 }
