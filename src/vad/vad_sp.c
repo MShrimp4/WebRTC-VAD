@@ -11,7 +11,7 @@
 #include "vad_sp.h"
 
 #include "rtc_base/checks.h"
-#include "common_audio/signal_processing/include/signal_processing_library.h"
+#include "signal_processing_library.h"
 #include "vad_core.h"
 
 // Allpass filter coefficients, upper and lower, in Q13.
@@ -70,7 +70,6 @@ int16_t WebRtcVad_FindMinimum(VadInstT* self,
   int16_t* age = &self->index_vector[offset];
   int16_t* smallest_values = &self->low_value_vector[offset];
 
-  RTC_DCHECK_LT(channel, kNumChannels);
 
   // Each value in `smallest_values` is getting 1 loop older. Update `age`, and
   // remove old values.

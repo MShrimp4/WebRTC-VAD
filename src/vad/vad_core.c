@@ -11,7 +11,7 @@
 #include "vad_core.h"
 
 #include "rtc_base/sanitizer.h"
-#include "common_audio/signal_processing/include/signal_processing_library.h"
+#include "signal_processing_library.h"
 #include "vad_filterbank.h"
 #include "vad_gmm.h"
 #include "vad_sp.h"
